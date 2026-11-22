@@ -1,6 +1,13 @@
-import { index, pgTable, text, timestamp, uuid } from 'drizzle-orm/pg-core';
+import {
+  index,
+  pgEnum,
+  pgTable,
+  text,
+  timestamp,
+  uuid,
+} from 'drizzle-orm/pg-core';
 
-import { projectStatus } from './_enum';
+const projectStatus = pgEnum('project_status', ['active', 'archived']);
 
 const projects = pgTable(
   'project',
@@ -21,4 +28,4 @@ const projects = pgTable(
   ]
 );
 
-export { projects };
+export { projects, projectStatus };

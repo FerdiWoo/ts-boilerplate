@@ -18,7 +18,7 @@ Browser
 - `src/features/<feature>/server/*.service.ts`: business rules, authorization, and orchestration.
 - `src/features/<feature>/server/*.repository.ts`: Drizzle queries and transactions only.
 - `src/features/<feature>/server/*.queries.ts`: server-rendering read entry points and request deduplication.
-- `src/server/db/schema`: one schema file per domain concept, re-exported by `index.ts`.
+- `src/server/db/schema.ts`: every table and enum in one file. Split it into a `schema/` folder with an `index.ts` re-export once it grows.
 
 ## Route groups
 
@@ -60,7 +60,6 @@ Cross-domain operational adapters live under `src/server/infrastructure`. Use th
 
 - `src/server/db/seed.ts` provides idempotent local development data and refuses to run in production.
 - `src/server/db/test-db.ts` lazily connects to the dedicated `TEST_DB_URL` so integration setup can inject an isolated database before first use.
-- `src/server/db/schema/_enum.ts` owns PostgreSQL enums shared by domain tables.
 - `src/server/db/templates/*.ts.example` are non-compiled discovery templates. Replace every placeholder before copying one into the active schema.
 - Add `relations.ts` only when the Drizzle relational query API has a real consumer; foreign keys remain mandatory where the database relationship exists.
 
@@ -87,7 +86,7 @@ Keep unit tests beside the code they exercise. `src/__tests__/integration` owns 
 For a `customer` feature, add files in this order:
 
 ```text
-src/server/db/schema/customer.ts
+src/server/db/schema.ts   (add the customer table here)
 src/features/customers/contracts/customers.schemas.ts
 src/features/customers/server/customers.repository.ts
 src/features/customers/server/customers.service.ts

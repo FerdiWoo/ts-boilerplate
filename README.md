@@ -56,7 +56,7 @@ src/
     │   ├── index.ts             # typed Drizzle client
     │   ├── seed.ts              # repeatable development data
     │   ├── test-db.ts           # lazy isolated test connection
-    │   └── schema/              # one table group per domain
+    │   └── schema.ts            # all tables and enums
     ├── infrastructure/          # logging and operational adapters
     └── integrations/            # external service clients
 ```

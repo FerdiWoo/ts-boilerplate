@@ -2,7 +2,7 @@ import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const PLACEHOLDER_PATTERN = /\b(?:table1|table2|entity1|entity2)\b/gi;
-const SCAN_ROOTS = ['src/server/db/schema', 'src/features', 'drizzle'];
+const SCAN_ROOTS = ['src/server/db', 'src/features', 'drizzle'];
 const SCANNED_EXTENSIONS = new Set([
   '.cjs',
   '.js',
