@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Drizzle Schema Conventions'
+  short_description: 'Build consistent placeholder and production Postgres schemas'
+  default_prompt: 'Use $drizzle-schema-conventions to replace the placeholder tables with production Drizzle schemas for this application.'

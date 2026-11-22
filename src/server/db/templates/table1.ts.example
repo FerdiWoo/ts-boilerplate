@@ -1,0 +1,20 @@
+import { index, pgTable, text, timestamp, uuid } from 'drizzle-orm/pg-core';
+
+// Replace every table1/entity1 placeholder before moving this file into schema/.
+const table1 = pgTable(
+  'table1',
+  {
+    id: uuid('table1_id').primaryKey().defaultRandom(),
+    name: text('name').notNull(),
+    createdAt: timestamp('created_at', { withTimezone: true })
+      .defaultNow()
+      .notNull(),
+    updatedAt: timestamp('updated_at', { withTimezone: true })
+      .defaultNow()
+      .notNull(),
+  },
+  (table) => [index('table1_name_idx').on(table.name)]
+);
+
+export { table1 };
+
