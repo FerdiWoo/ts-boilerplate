@@ -12,8 +12,6 @@ Build the smallest schema that supports the confirmed product requirements. Trea
 
 1. Read `src/server/db/schema.ts`, the relevant feature contracts, and existing
    migrations.
-   Use `src/server/db/templates/table1.ts.example` and `table2.ts.example` as
-   starting shapes when the product schema has not been designed yet.
 2. Confirm the entities, relationships, ownership rules, deletion behavior, and
    query patterns. Do not invent product fields to make a placeholder look complete.
 3. Replace placeholder names throughout schema, repositories, services, tests,

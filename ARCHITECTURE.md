@@ -60,7 +60,6 @@ Cross-domain operational adapters live under `src/server/infrastructure`. Use th
 
 - `src/server/db/seed.ts` provides idempotent local development data and refuses to run in production.
 - `src/server/db/test-db.ts` lazily connects to the dedicated `TEST_DB_URL` so integration setup can inject an isolated database before first use.
-- `src/server/db/templates/*.ts.example` are non-compiled discovery templates. Replace every placeholder before copying one into the active schema.
 - Add `relations.ts` only when the Drizzle relational query API has a real consumer; foreign keys remain mandatory where the database relationship exists.
 
 ## Testing
@@ -69,7 +68,7 @@ Keep unit tests beside the code they exercise. `src/__tests__/integration` owns 
 
 ## Automated guardrails
 
-`scripts/check-placeholders.mjs` blocks active schemas, features, and migrations containing `table1`, `table2`, `entity1`, or `entity2`. The intentional files under `src/server/db/templates` are outside its scan roots. The check runs in both `npm run check` and production builds.
+`scripts/check-placeholders.mjs` blocks active schemas, features, and migrations containing `table1`, `table2`, `entity1`, or `entity2`. The check runs in both `npm run check` and production builds.
 
 ## Dependency rules
 
